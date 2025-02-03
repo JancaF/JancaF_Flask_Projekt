@@ -9,5 +9,8 @@ def index():
 def kontakty():
     return '<h1>Kontakty</h1> <a href="/">Domů</a>'
 
+@app.route('/<jmeno>')
+def jmeno(jmeno):
+    return f'<h2> Vítej {jmeno} </h2>'
 if __name__ == '__main__':
     app.run(debug=True)
