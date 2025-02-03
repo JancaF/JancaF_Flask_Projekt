@@ -1,9 +1,9 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return '<h1>Hello World!</h1> <a href="/kontakty">Kontakty</a>'
+    return render_template('index.html')
 
 @app.route('/kontakty')
 def kontakty():
@@ -15,9 +15,10 @@ def cislo(cislo1, cislo2):
         return f'Násobek je {int(cislo1) * int(cislo2)}'
     except ValueError:
         return 'Neplatné číslo.'
-@app.route('/<jmeno>/<prijmeni>')
+@app.route('user/<jmeno>/<prijmeni>')
 def uzivatel(jmeno, prijmeni):
     return f'<h2> Vítej {jmeno} {prijmeni}</h2>'
+
 @app.route('/<jmeno>')
 def jmeno(jmeno):
     return f'<h2> Vítej {jmeno} </h2>'
