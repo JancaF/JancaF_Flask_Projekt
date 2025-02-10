@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="cz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <title>Base Webpage</title>
+</head>
+<body>
+    <h1>VÍTEJTE !</h1>
+    <p>Base Menu:</p>
+    <ul>
+        <li><a href="{{url_for('contact',filename='contact.html')}}">Kontakty</a></li>
+        <br>
+        <li><a href="{{url_for('index',filename='index.html')}}">Hlavní stránka</a></li>
+        <br>
+        <li><a href="{{url_for('gallery',filename='gallery.html')}}">Galerie</a></li>
+        <br>
+        <li><a href="{{url_for('user',filename='user.html')}}">Uživatelská stránka</a></li>
+    </ul>
+</body>
+</html>

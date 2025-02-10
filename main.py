@@ -8,18 +8,24 @@ def index():
 @app.route('/kontakty')
 def kontakty():
     return '<h1>Kontakty</h1> <a href="/">Domů</a>'
-
-@app.route('/nasobek/<cislo1>/<cislo2>)')
-def cislo(cislo1, cislo2):
+@app.route('/gallery/')
+def gallery():
+    return '<h1>Galerie</h1> <a href="/">Domů</a>'
+@app.route('/nasobek/')
+def nasobek():
+    return '<h1>Nasobek</h1> <a href="/">Domů</a>'
+@app.route('/nasobek/<a>/<b>)')
+def number(a, b):
     try:
-        return f'Násobek je {int(cislo1) * int(cislo2)}'
+        return f'Násobek je {int(a) * int(b)}'
     except ValueError:
         return 'Neplatné číslo.'
-@app.route('/<jmeno>/<prijmeni>')
-def uzivatel(jmeno, prijmeni):
-    return f'<h2> Vítej {jmeno} {prijmeni}</h2>'
-@app.route('/<jmeno>')
-def jmeno(jmeno):
-    return f'<h2> Vítej {jmeno} </h2>'
+@app.route('/user/<name>/<surname>')
+def uzivatel(name, surname):
+    return f'<h2> Vítej {name} {surname}</h2>'
+
+@app.route('/<name>')
+def username(name):
+    return f'<h2> Vítej {name} </h2>'
 if __name__ == '__main__':
     app.run(debug=True)
