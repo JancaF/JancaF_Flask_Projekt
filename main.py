@@ -3,6 +3,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    return render_template('base.html')
+@app.route('/homepage')
+def homepage():
     return render_template('index.html')
 @app.route('/abeceda/abc')
 def abeceda():
@@ -13,7 +16,7 @@ def alfabeta():
 @app.route('/azbuka/azb')
 def azbuka():
     return render_template('azb.html')
-@app.route('hebrejstina/heb')
+@app.route('/hebrejstina/heb')
 def hebrejstina():
     return render_template('hebrej.html')
 @app.route('/kontakty')
