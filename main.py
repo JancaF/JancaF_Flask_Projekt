@@ -7,16 +7,16 @@ def index():
 @app.route('/homepage')
 def homepage():
     return render_template('index.html')
-@app.route('/abeceda/abc')
+@app.route('/abeceda/')
 def abeceda():
     return render_template('abeceda.html')
-@app.route('/alfabeta/alfa')
+@app.route('/alfabeta/')
 def alfabeta():
     return render_template('alfabeta.html')
-@app.route('/azbuka/azb')
+@app.route('/azbuka/')
 def azbuka():
     return render_template('azb.html')
-@app.route('/hebrejstina/heb')
+@app.route('/hebrejstina/')
 def hebrejstina():
     return render_template('hebrej.html')
 @app.route('/kontakty')
