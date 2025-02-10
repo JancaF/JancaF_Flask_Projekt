@@ -9,16 +9,18 @@
 <body>
     <h1>VÍTEJTE !</h1>
     <p>Base Menu:</p>
-    <nav>
-        <ul>
-            <li><a href="{{url_for('kontakty',filename='contact.html')}}">Kontakty</a></li>
-            <br>
-            <li><a href="{{url_for('homepage',filename='index.html')}}">Hlavní stránka</a></li>
-            <br>
-            <li><a href="{{url_for('gallery',filename='gallery.html')}}">Galerie</a></li>
-            <h2>Abeceda</h2>
-
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('kontakty',filename='contact.html')}}">Kontakty</a></li>
+                <br>
+                <li><a href="{{url_for('homepage',filename='index.html')}}">Hlavní stránka</a></li>
+                <br>
+                <li><a href="{{url_for('gallery',filename='gallery.html')}}">Galerie</a></li>
+                <h2>Abeceda</h2>
+                <li><a href="{{url_for('"</li>
+            </ul>
+        </nav>
+    </header>
 </body>
 </html>
