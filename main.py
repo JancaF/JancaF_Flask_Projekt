@@ -37,10 +37,10 @@ def uzivatel(name, surname):
 @app.route('/odkaz', methods=['GET', 'POST'])
 def link():
     if request.method == 'POST':
-        blog = request.form['blog']
-        email = request.form['email']
+        user = request.form['user']
+        password = request.form['password']
         radio = request.form['radio']
-        return render_template('zkouska.html', blog=blog, email=email, radio=radio)
+        return render_template('zkouska.html', user=user, password=password, radio=radio)
     return render_template('link.html')
 @app.route('/<name>')
 def username(name):
