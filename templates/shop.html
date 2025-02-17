@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>
+    {% block title %}
+    Obchod
+    {% endblock %}
+</h2>
+
+<main>
+    <p>Zde najdete naše produkty, velmi propracované a úžitkové ! Naše zboží zná kvalitu !</p>
+    <h3>Snickers Bar</h3>
+    <img src="/static/img/produkt_1.jpeg" alt="snickers">
+    <div class="pricetag">
+        69,90 Kč
+    </div>
+
+    <br>
+
+    <h3>Mars Bar</h3>
+    <img src="/static/img/produkt_2.png" alt="marscandy">
+    <div class="pricetag">
+        59,90 Kč
+    </div>
+</main>
+
+{% endblock %}
+
+

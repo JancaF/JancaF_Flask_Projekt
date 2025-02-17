@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-
 <h2>
     {% block title %}
-    Zkouska
+    Prihlasovaci Stranka
     {% endblock %}
 </h2>
 
 <main>
-    {% if radio %}
-    <p>VYBRANY PROGRAMOVACI JAZYK JE: {{ radio }}</p>
-
-    {% endif %}
-
+    <p>Prosíme přihlašte se do vašeho uživatelského účtu:</p>
     {% if user == 'pokuston' and password == 'heslo' %}
     <h3>USPESNE PRIHLASENI UZIVATELE {{ user }}</h3>
     {% elif user == 'pokuston' %}

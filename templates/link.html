@@ -4,32 +4,22 @@
 
 <h2>
     {% block title %}
-    Formular
+    Prihlaseni
     {% endblock %}
 </h2>
 
     <form method="POST">
-        <label>Uzivatelske jmeno
-            <input type="text" name="user" placeholder="Vyplnte jmeno blogu" required>
+        <label>Uzivatelske jmeno:
+            <input type="text" name="user" placeholder="Vyplnte jmeno do pole" required>
         </label>
+        <br>
         <label>
-            heslo
+            <br>
+            Heslo:
             <input type="password" name="password">
         </label>
-        <label>
-            Flask
-            <input type="radio" name="radio" value="Flask" checked>
-        </label>
-        <label>
-            PHP
-            <input type="radio" name="radio"  value="PHP">
-        </label>
-        <label>
-            JavaScript
-            <input type="radio"  name="radio" value="JavaScript">
-        </label>
-        <label>
-            Odeslat
+            <br>
+            <br>
             <button type="submit" value="submit">Odeslat formular</button>
         </label>
     </form>

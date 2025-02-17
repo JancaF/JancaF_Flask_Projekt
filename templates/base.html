@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
-    <title>{% block title %}{% endblock %}Base Webpage - Flask Project</title>
+    <title>{% block title %}{% endblock %} - Foodia E-Shop</title>
 </head>
 <body>
-    <h1>VÍTEJTE !</h1>
-    <p>Base Menu:</p>
+    <h1>Foodia E-Shop</h1>
+    <b>Navigační menu:</b>
     <header>
         <nav>
             <ul>
-                <li><a href="{{url_for('kontakty')}}">Kontakty</a></li>
-                <br>
                 <li><a href="{{url_for('homepage')}}">Hlavní stránka</a></li>
                 <br>
-                <li><a href="{{url_for('gallery')}}">Galerie</a></li>
-                <li><a href="{{url_for('link')}}">Formular</a></li>
-                <h2>Abeceda</h2>
-                <li><a href="{{url_for('abeceda')}}">Abeceda</a></li>
-                <li><a href="{{url_for('alfabeta')}}">Alfabeta</a></li>
+                <li><a href="{{url_for('link')}}">Prihlaseni</a></li>
+                <br>
+                <li><a href="{{url_for('obchod')}}">Obchod</a></li>
             </ul>
         </nav>
     </header>
 {% block content %}
 {% endblock %}
+<footer>
+    <b>WebShoppé - Company [Místo: Praha 6, Malostránská 954] / COPYRIGHT 2025 </b>
+</footer>
 </body>
 </html>

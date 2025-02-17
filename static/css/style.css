@@ -1,17 +1,42 @@
 * {
-    border: solid 1px black;
-    border-radius: 5px;
-    background-color:dimgrey;
-    font-family: 'Lucida Grande', Arial, sans-serif;
+    font-family: Bahnschrift, serif;
 }
+
 body {
     background-color:slategrey;
 }
 ul {
-    text-align: center;
     color:yellow;
     text-decoration: dashed;
 }
+nav {
+    background-color:darkslategrey;
+    border:2px solid black;
+}
+a:hover {
+    background: darkolivegreen;
+    color:lightgreen;
+}
+input {
+    background-color:darkgrey;
+}
+.pricetag {
+    font-size:24px;
+}
+img {
+    width:200px;
+    height:auto;
+}
 button {
     background-color: azure;
+}
+a {
+    color:lime;
+    text-decoration: underline;
+}
+footer {
+    background-color:lightslategrey;
+    border:2px solid black;
+    text-align: center;
+    margin:50px;
 }
