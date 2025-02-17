@@ -9,18 +9,9 @@
 </h2>
 
 <main>
-    {% if radio %}
-    <p>VYBRANY PROGRAMOVACI JAZYK JE: {{ radio }}</p>
-
-    {% endif %}
-
-    {% if user == 'pokuston' and password == 'heslo' %}
-    <h3>USPESNE PRIHLASENI UZIVATELE {{ user }}</h3>
-    {% elif user == 'pokuston' %}
-    <h3>SPATNE HESLO</h3>
-    {% else %}
-    <h3>NEPLATNY UZIVATEL</h3>
-    {% endif %}
+    <p>Nazev bloku je {{ blog }}</p>
+    <p>Emailova adresa je {{ email }}</p>
+    <p>Vybrany programovaci jazyk je {{ radio }}</p>
 </main>
 
 {% endblock %}

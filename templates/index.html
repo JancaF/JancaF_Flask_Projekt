@@ -4,17 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
-    <title>Hello World</title>
+    <title>Flask Project</title>
 </head>
 <body>
     <h1>VÍTEJTE !</h1>
-    <p>lorem ipsum</p>
-    <ul>
-        <li><a href="/kontakty">Kontakty</a></li>
-        <br>
-        <li><a href="/gallery/">Galerie</a></li>
-        <br>
-        <li><a href="/nasobek/">Násobek</a></li>
-    </ul>
+    <p>Vítejte v mém projektu Flasku, kde se bude zkoušet různé úkoly a experimenty s Pythonem</p>
+    <b>Chcete zpátky ?</b>
+    <a href="{{url_for('index',filename='base.html')}}">Zpátky</a>
 </body>
 </html>
