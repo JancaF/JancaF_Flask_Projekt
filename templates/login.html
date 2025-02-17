@@ -6,7 +6,21 @@
     Prihlasovaci Stranka
     {% endblock %}
 </h2>
-
+    <form method="POST">
+        <label>Uzivatelske jmeno:
+            <input type="text" name="user" placeholder="Vyplnte jmeno do pole" required>
+        </label>
+        <br>
+        <label>
+            <br>
+            Heslo:
+            <input type="password" name="password">
+        </label>
+            <br>
+            <br>
+            <button type="submit" value="submit">Odeslat formular</button>
+        </label>
+    </form>
 <main>
     <p>Prosíme přihlašte se do vašeho uživatelského účtu:</p>
     {% if user == 'pokuston' and password == 'heslo' %}

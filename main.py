@@ -14,7 +14,7 @@ def obchod():
 def link(user='pokuston', password='heslo'):
     if request.method == 'POST':
         return render_template('login.html', user=user, password=password)
-    return render_template('link.html')
+    return render_template('login.html')
 @app.route('/<name>')
 def username(name):
     return f'<h2> Vítej {name} </h2>'
