@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
-    <title>Base Webpage</title>
+    <title>{% block title %}{% endblock %}Base Webpage - Flask Project</title>
 </head>
 <body>
     <h1>VÍTEJTE !</h1>
     <p>Base Menu:</p>
-    <ul>
-        <li><a href="{{url_for('contact',filename='contact.html')}}">Kontakty</a></li>
-        <br>
-        <li><a href="{{url_for('index',filename='index.html')}}">Hlavní stránka</a></li>
-        <br>
-        <li><a href="{{url_for('gallery',filename='gallery.html')}}">Galerie</a></li>
-        <br>
-        <li><a href="{{url_for('user',filename='user.html')}}">Uživatelská stránka</a></li>
-    </ul>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('kontakty')}}">Kontakty</a></li>
+                <br>
+                <li><a href="{{url_for('homepage')}}">Hlavní stránka</a></li>
+                <br>
+                <li><a href="{{url_for('gallery')}}">Galerie</a></li>
+                <li><a href="{{url_for('link')}}">Formular</a></li>
+                <h2>Abeceda</h2>
+                <li><a href="{{url_for('abeceda')}}">Abeceda</a></li>
+                <li><a href="{{url_for('alfabeta')}}">Alfabeta</a></li>
+            </ul>
+        </nav>
+    </header>
+{% block content %}
+{% endblock %}
 </body>
 </html>
