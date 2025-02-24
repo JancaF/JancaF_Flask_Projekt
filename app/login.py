@@ -6,7 +6,9 @@ USERS = {"pokuston": "kouzelnik", "admin": "admin", "student":"zak"}
 @bp.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        if request.form['username':'password'] in USERS:
+        username = request.form['username']
+        password = request.form['password']
+        if username in USERS and USERS[username] == password:
             flash("Login successful", "message")
             return redirect(url_for('index'))
         flash("Login failed", "warning")
@@ -15,9 +17,13 @@ def login():
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        if request.form == ["username", "password", "email"]:
-            if USERS[request.form['username']] == "admin":
+        username = request.form.get('username')
+        password = request.form.get('password')
+        email = request.form.get('email')
+        if username and password and email:
+            if username not in USERS:
+                USERS[username] = password
                 flash("Register successful", "message")
                 return redirect(url_for('index'))
-            flash("User registration failed", "warning")
+            flash("User already exists", "warning")
     return render_template('register.html')
