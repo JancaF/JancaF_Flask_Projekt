@@ -1,6 +1,4 @@
 * {
-    border: solid 1px black;
-    border-radius: 5px;
     background-color:dimgrey;
     font-family: 'Lucida Grande', Arial, sans-serif;
 }
@@ -14,4 +12,7 @@ ul {
 }
 button {
     background-color: azure;
+}
+.warning {
+    background-color:red;
 }
