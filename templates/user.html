@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+<h2>
+    {% block title %}
+    USER LIST
+    {% endblock %}
+</h2>
+<br>
+{% block content %}
+<ul>
+    {% for username in results %}
+        <li>{{ username }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

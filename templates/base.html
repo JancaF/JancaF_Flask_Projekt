@@ -12,16 +12,11 @@
     <header>
         <nav>
             <ul>
-                <li><a href="{{url_for('kontakty')}}">Kontakty</a></li>
-                <br>
-                <li><a href="{{url_for('homepage')}}">Hlavní stránka</a></li>
-                <br>
-                <li><a href="{{url_for('gallery')}}">Galerie</a></li>
                 <li><a href="{{url_for('login.login')}}">Login</a></li>
+                <br>
+                <li><a href="{{url_for('login.user_list')}}">Uživatelé</a></li>
+                <br>
                 <li><a href="{{url_for('login.register')}}">Registrace</a></li>
-                <h2>Abeceda</h2>
-                <li><a href="{{url_for('abeceda')}}">Abeceda</a></li>
-                <li><a href="{{url_for('alfabeta')}}">Alfabeta</a></li>
             </ul>
         </nav>
     </header>
@@ -35,6 +30,7 @@
       {% endif %}
 {% endwith %}
 {% block content %}
+    <br>
 {% endblock %}
 </body>
 </html>
