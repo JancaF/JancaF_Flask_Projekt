@@ -7,29 +7,17 @@
     {% endblock %}
 </h2>
     <form method="POST">
-        <label>Uzivatelske jmeno:
-            <input type="text" name="user" placeholder="Vyplnte jmeno do pole" required>
+        <label>Uzivatelske jmeno
+            <input type="text" name="username" placeholder="Vyplnte toto pole" required>
         </label>
-        <br>
         <label>
-            <br>
-            Heslo:
+            heslo
             <input type="password" name="password">
         </label>
-            <br>
-            <br>
+        <label>
+            Odeslat
             <button type="submit" value="submit">Odeslat formular</button>
         </label>
     </form>
-<main>
-    <p>Prosíme přihlašte se do vašeho uživatelského účtu:</p>
-    {% if user == 'pokuston' and password == 'heslo' %}
-    <h3>USPESNE PRIHLASENI UZIVATELE {{ user }}</h3>
-    {% elif user == 'pokuston' %}
-    <h3>SPATNE HESLO</h3>
-    {% else %}
-    <h3>NEPLATNY UZIVATEL</h3>
-    {% endif %}
-</main>
 
 {% endblock %}

@@ -13,11 +13,16 @@
     <header>
         <nav>
             <ul>
-                <li><a href="{{url_for('homepage')}}">Hlavní stránka</a></li>
-                <br>
-                <li><a href="{{url_for('link')}}">Prihlaseni</a></li>
-                <br>
-                <li><a href="{{url_for('obchod')}}">Obchod</a></li>
+            {% if current_user %}
+                <li>Přihlášen jako: {{ current_user }}</li>
+                <li><a href="{{ url_for('login.logout') }}">Odhlásit se</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login.login') }}">Přihlášení</a></li>
+                <li><a href="{{ url_for('login.register') }}">Registrace</a></li>
+            {% endif %}
+            <li><a href="{{ url_for('login.homepage') }}">Úvodní stránka</a></li>
+            <li><a href="{{ url_for('login.shop') }}">Obchod</a></li>
+            <li><a href="{{ url_for('login.user_list') }}">List Uživatelů</a></li>
             </ul>
         </nav>
     </header>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h2>
+    {% block title %}
+        Registracni formular
+    {% endblock %}
+</h2>
+
+<main>
+    <form method="POST">
+        <label>
+            Uzivatelske jmeno
+            <input type="text" name="username" required>
+        </label>
+        <label>
+            Vase heslo
+            <input type="text" name="password" required>
+        </label>
+        <label>
+            Vas email
+            <input type="text" name="email" required>
+        </label>
+        <label>
+            Odeslat
+            <button type="submit" value="submit">Odeslat formular</button>
+        </label>
+    </form>
+</main>
+
+{% endblock %}
