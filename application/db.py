@@ -18,11 +18,12 @@ def create_db():
     conn.commit()
     conn.close()
 
-def db_execute(command, path=DB_PATH):
+def db_execute(command, params=False, path=DB_PATH):
     conn = connect_db(path)
-    result = conn.execute(command)
+    if params:
+        result = conn.execute(command, params).fetchall()
+    else:
+        result = conn.execute(command).fetchall()
     conn.commit()
     conn.close()
     return result
-
-

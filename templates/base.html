@@ -12,17 +12,25 @@
     <header>
         <nav>
             <ul>
-                <li><a href="{{url_for('homepage')}}">Hlavní stránka</a></li>
+                <li><a href="{{url_for('login.login')}}">Login</a></li>
                 <br>
-                <li><a href="{{url_for('users')}}">Userlist</a></li>
-                <li><a href="{{url_for('link')}}">Formular</a></li>
-                <h2>Abeceda</h2>
-                <li><a href="{{url_for('abeceda')}}">Abeceda</a></li>
-                <li><a href="{{url_for('alfabeta')}}">Alfabeta</a></li>
+                <li><a href="{{url_for('login.user_list')}}">Uživatelé</a></li>
+                <br>
+                <li><a href="{{url_for('login.register')}}">Registrace</a></li>
             </ul>
         </nav>
     </header>
+{% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+          <li class="{{ warning }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+{% endwith %}
 {% block content %}
+    <br>
 {% endblock %}
 </body>
 </html>

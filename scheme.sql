@@ -1,4 +1,4 @@
-CREATE TABLE users(
+CREATE TABLE users (
     id INT PRIMARY KEY,
     username VARCHAR UNIQUE NOT NULL,
     email VARCHAR UNIQUE,
@@ -8,4 +8,4 @@ CREATE TABLE users(
 
 INSERT INTO users (username, password) VALUES ("admin", "admin"),
                                               ("user", "user"),
-                                              ("kouzelnik", "kouzelnik")
+                                              ("kouzelnik", "kouzelnik");
