@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 <h2>
     {% block title %}
         Registracni formular
@@ -17,7 +16,11 @@
         </label>
         <label>
             Vase heslo
-            <input type="text" name="password" required>
+            <input type="password" name="password" required>
+        </label>
+        <label>
+            Potvrďte heslo
+            <input type="password" name="confirm_password" required>
         </label>
         <label>
             Vas email

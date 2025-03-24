@@ -21,11 +21,20 @@
                 <li><a href="{{ url_for('login.register') }}">Registrace</a></li>
             {% endif %}
             <li><a href="{{ url_for('login.homepage') }}">Úvodní stránka</a></li>
+            <li><a href="{{ url_for('shop.index') }}">E-shop</a></li>
             <li><a href="{{ url_for('login.shop') }}">Obchod</a></li>
             <li><a href="{{ url_for('login.user_list') }}">List Uživatelů</a></li>
             </ul>
         </nav>
     </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 {% block content %}
 {% endblock %}
 <footer>

@@ -6,6 +6,7 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 bp = Blueprint('application', __name__, url_prefix='/application')
 app.config["SECRET_KEY"] = "dev"
 app.config["DATABASE"] = "database.sqlite"
+app.config["DB_SCHEME"] = "sqlite"
 
 
 @app.route("/")
