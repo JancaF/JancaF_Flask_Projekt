@@ -1,23 +1,20 @@
-from flask import Flask, render_template, request
-app = Flask(__name__)
+from flask import Flask, render_template, session
+from application import app, login
+from application.db import create_db
+from os import path
 
-@app.route('/')
-def index():
-    return render_template('base.html')
+app.register_blueprint(login.bp)
+app.secret_key = "dev"
+
+if __name__ == '__main__':
+
+    if not path.exists(app.config["DATABASE"]):
+        print("Inicializace database")
+        create_db()
+
+
+    app.run(debug=True)
+
 @app.route('/homepage')
 def homepage():
     return render_template('index.html')
-@app.route('/obchod')
-def obchod():
-    return render_template('shop.html')
-@app.route('/odkaz', methods=['GET', 'POST'])
-def link(user='pokuston', password='heslo'):
-    if request.method == 'POST':
-        return render_template('login.html', user=user, password=password)
-    return render_template('login.html')
-@app.route('/<name>')
-def username(name):
-    return f'<h2> Vítej {name} </h2>'
-
-if __name__ == '__main__':
-    app.run(debug=True)

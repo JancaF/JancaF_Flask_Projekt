@@ -40,3 +40,12 @@ footer {
     text-align: center;
     margin:50px;
 }
+.product {
+    background: darkolivegreen;
+    font-family: "Arial Narrow", serif;
+    color:yellow;
+    font-size:24px;
+}
+.alert {
+    color: #fff749;
+}

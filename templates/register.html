@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<h2>
+    {% block title %}
+        Registracni formular
+    {% endblock %}
+</h2>
+
+<main>
+    <form method="POST">
+        <label>
+            Uzivatelske jmeno
+            <input type="text" name="username" required>
+        </label>
+        <label>
+            Vase heslo
+            <input type="password" name="password" required>
+        </label>
+        <label>
+            Potvrďte heslo
+            <input type="password" name="confirm_password" required>
+        </label>
+        <label>
+            Vas email
+            <input type="text" name="email" required>
+        </label>
+        <label>
+            Odeslat
+            <button type="submit" value="submit">Odeslat formular</button>
+        </label>
+    </form>
+</main>
+
+{% endblock %}
