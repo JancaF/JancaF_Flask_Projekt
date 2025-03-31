@@ -7,5 +7,17 @@
 </h2>
 
 <p>Obchod</p>
+Vítejte v e-shopu přihlášený uživateli: <b>{{ current_user }}</b>
+    <br>
+    Zde si můžete vybrat z našich produktů
+    <main>
+        <p>Zde najdete naše produkty, velmi propracované a úžitkové ! Naše zboží zná kvalitu !</p>
+        <div class="product">
+            {% for name in results %}
+            {{ name }} - Kč
+            {% endfor %}
+        </div>
+    </main>
+
 
 {% endblock %}
