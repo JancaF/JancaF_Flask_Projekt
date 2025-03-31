@@ -1,3 +1,4 @@
+<! -- STRÁNKA DOSTUPNÁ JENOM PŘIHLÁŠENÉMU UŽIVATELOVI -->
 {% extends "base.html" %}
 
 {% block content %}
@@ -7,5 +8,22 @@
 </h2>
 
 <p>Obchod</p>
+Vítejte v e-shopu přihlášený uživateli: <b>{{ current_user }}</b>
+    <br>
+    Zde si můžete vybrat z našich produktů
+    <main>
+        <p>Zde najdete naše produkty, velmi propracované a úžitkové ! Naše zboží zná kvalitu !</p>
+        <div class="product">
+            <ul>
+                <li>
+                    {% for name in results %}
+                    {{ name }} - Kč <button type="button">Koupit</button>
+                        <br>
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </main>
+
 
 {% endblock %}

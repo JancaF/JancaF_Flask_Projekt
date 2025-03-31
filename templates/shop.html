@@ -1,3 +1,4 @@
+<! -- OBCHODNÍ STRÁNKA (PRO NÁVŠTĚVNÍKY) -->
 {% extends "base.html" %}
 
 {% block content %}
@@ -10,9 +11,15 @@
 <main>
     <p>Zde najdete naše produkty, velmi propracované a úžitkové ! Naše zboží zná kvalitu !</p>
     <div class="product">
-    {% for name in results %}
-    {{ name }} - Kč
-    {% endfor %}
+    <ul>
+        <li>
+            {% for name in results %}
+            {{ name }} - Kč
+                <br>
+            {% endfor %}
+        </li>
+    </ul>
+    <br>
     </div>
 </main>
 

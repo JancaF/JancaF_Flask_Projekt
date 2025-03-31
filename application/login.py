@@ -1,10 +1,24 @@
+# SPRÁVA PŘIHLAŠOVÁNÍ LOGIN.PY
+import functools
+
 from flask import Blueprint, request, redirect, render_template, request, url_for, session, flash
 
 from application import db_execute
 
 bp = Blueprint('login', __name__, url_prefix='/login')
+
+def login_required(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        if "user" not in session:
+            flash("SEKCE POUZE PRO PŘIHLÁŠENÉ", "warning")
+            return redirect(url_for("login.login"))
+        return func(*args, **kwargs)
+    return wrapper
+
 @bp.route('/', methods=['GET', 'POST'])
 def login():
+    """Přihlašovací metoda"""
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -20,8 +34,10 @@ def login():
         flash("Login failed", "warning")
 
     return render_template('login.html')
+
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
+    """Registrační metoda"""
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -48,6 +64,7 @@ def register():
 
 @bp.route("/users")
 def user_list():
+    """Listina všech users (uživatelů z databáze)"""
     command = "SELECT username, password FROM users"
     results = db_execute(command)
     print(results)
@@ -65,7 +82,9 @@ def logout():
 
 @bp.route("/shop")
 def shop():
+    """Načtení všech produktů z databáze"""
     product_command = "SELECT name, price FROM products"
     results = db_execute(product_command)
     print(results)
     return render_template("shop.html", results=results)
+

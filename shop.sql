@@ -8,8 +8,7 @@ CREATE TABLE users (
 CREATE TABLE products (
     id INT PRIMARY KEY,
     name VARCHAR UNIQUE NOT NULL,
-    price INT UNIQUE NOT NULL,
-    image VARCHAR NOT NULL
+    price INT UNIQUE NOT NULL
 );
 
 
@@ -18,4 +17,6 @@ INSERT INTO users (username, password) VALUES ("admin", "admin"),
                                               ("user", "user"),
                                               ("kouzelnik", "kouzelnik");
 
-INSERT INTO products (name, price, image) VALUES ("Twixx - Dual Choco", "39","/static/img/produkt_1.jpeg");
+INSERT INTO products (name, price) VALUES ("Twixx - Dual Choco", "39"),
+                                          ("Desert Stuff", "44"),
+                                          ("SnickerBar","47");
