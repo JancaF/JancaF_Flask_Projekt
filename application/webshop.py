@@ -8,5 +8,8 @@ bp = Blueprint('shop', __name__, url_prefix='/shop', template_folder='../templat
 @bp.route('/')
 @login_required
 def index():
-    return render_template('webshop.html')
+    product_command = "SELECT name, price FROM products"
+    results = db_execute(product_command)
+    print(results)
+    return render_template('webshop.html', results=results)
 
