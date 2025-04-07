@@ -8,14 +8,13 @@
     <title>{% block title %}{% endblock %} - Foodia E-Shop</title>
 </head>
 <body>
-<! -- HTML SOUBOR, CELÉ MENU S REGISTRAČNÍ A PŘIHLAŠOVACÍ METODOU -->
     <h1>Foodia E-Shop</h1>
     <b>Navigační menu:</b>
     <header>
         <nav>
             <ul>
             {% if current_user %}
-                <li>Přihlášen jako: {{ current_user }}</li>
+                <li>Přihlášen jako: {{ current_user }} - {{ current_role }}</li>
                 <li><a href="{{ url_for('login.logout') }}">Odhlásit se</a></li>
             {% else %}
                 <li><a href="{{ url_for('login.login') }}">Přihlášení</a></li>
@@ -24,6 +23,7 @@
             <li><a href="{{ url_for('login.homepage') }}">Úvodní stránka</a></li>
             <li><a href="{{ url_for('shop.index') }}">E-shop</a></li>
             <li><a href="{{ url_for('login.shop') }}">Obchod</a></li>
+            <li><a href="{{ url_for('login.user_list') }}">List Uživatelů</a></li>
             </ul>
         </nav>
     </header>

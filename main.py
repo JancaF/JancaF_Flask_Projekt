@@ -1,4 +1,3 @@
-# HLAVNÍ SOUBOR A ZAČÁTEK APLIKACE
 from flask import Flask, render_template, session
 from application import app, login, webshop
 from application.db import create_db
@@ -12,8 +11,7 @@ if __name__ == '__main__':
 
     if not path.exists(app.config["DATABASE"]):
         print("Inicializace database")
-        with app.app_context():
-            create_db()
+        create_db()
 
 
     app.run(debug=True)
@@ -21,5 +19,3 @@ if __name__ == '__main__':
 @app.route('/homepage')
 def homepage():
     return render_template('index.html')
-
-# CELÁ APLIKACE SE ZAPÍNÁ PŘES TENTO SOUBOR !

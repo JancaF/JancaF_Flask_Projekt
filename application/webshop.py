@@ -1,4 +1,3 @@
-# SOUČÁSTÍ APLIKACE (OBCHOD) - ZOBRAZÍ SE PO PŘIHLÁŠENÍ UŽIVATELE
 from flask import Blueprint, render_template, session, flash, redirect, url_for
 
 from application import db_execute

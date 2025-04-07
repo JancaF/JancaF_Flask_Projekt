@@ -1,4 +1,3 @@
-# SPRÁVA PŘIHLAŠOVÁNÍ LOGIN.PY
 import functools
 
 from flask import Blueprint, request, redirect, render_template, request, url_for, session, flash
@@ -18,7 +17,6 @@ def login_required(func):
 
 @bp.route('/', methods=['GET', 'POST'])
 def login():
-    """Přihlašovací metoda"""
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -37,7 +35,6 @@ def login():
 
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
-    """Registrační metoda"""
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -64,7 +61,6 @@ def register():
 
 @bp.route("/users")
 def user_list():
-    """Listina všech users (uživatelů z databáze)"""
     command = "SELECT username, password FROM users"
     results = db_execute(command)
     print(results)
@@ -82,7 +78,6 @@ def logout():
 
 @bp.route("/shop")
 def shop():
-    """Načtení všech produktů z databáze"""
     product_command = "SELECT name, price FROM products"
     results = db_execute(product_command)
     print(results)
