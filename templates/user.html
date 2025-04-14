@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 
-<h2>
-    {% block title %}
+{% block title %}
     USER LIST
-    {% endblock %}
-</h2>
-<br>
-{% block content %}
-<ul>
-    {% for username in results %}
-        <li>{{ username }}</li>
-    {% endfor %}
+{% endblock %}
 
+{% block content %}
+<h2>Seznam uživatelů</h2>
+<ul>
+    {% for user in results %}
+        <li>
+            {{ user['username'] }}
+            <a href="{{ url_for('login.edit_user', user_id=user['id']) }}">Upravit</a>
+        </li>
+    {% endfor %}
 </ul>
 {% endblock %}

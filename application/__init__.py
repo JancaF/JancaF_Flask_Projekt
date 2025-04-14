@@ -7,7 +7,7 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 bp = Blueprint('application', __name__, url_prefix='/application')
 app.config["SECRET_KEY"] = "dev"
 app.config["DATABASE"] = "database.sqlite"
-app.config["DB_SCHEME"] = "sqlite"
+app.config["DB_SCHEME"] = "shop.sql"
 
 login_manager = LoginManager()
 login_manager.login_view = 'login'
@@ -42,22 +42,48 @@ class User(UserMixin):
         return db_execute(f"SELECT * FROM users WHERE id = {user_id}")
 
 
+def get_roles_dict():
+    roles = db_execute("SELECT id, name FROM roles")
+    return {role[0]: role[1] for role in roles}
+
+
 @login_manager.user_loader
 def load_user(user_id):
     if 'user' in session:
-        print(session['user'])  # Toto ti ukáže, co je uloženo v session['user']
-        return User(session['user']['id'], session['user']['username'], "", session['user']['role_id'])
+        # Pokud je 'user' pouze ID, musíš získat celý uživatelský objekt z databáze
+        if isinstance(session['user'], str):  # Pokud je to ID
+            user_data = db_execute(f"SELECT * FROM users WHERE id = {session['user']}")
+            if user_data:
+                user = user_data[0]
+                role_id = user['role_id']
+
+                # Pokud uživatel nemá roli, přiřaď mu roli VISITOR
+                if not role_id:
+                    role_id = db_execute("SELECT id FROM roles WHERE name = 'VISITOR'")[0][0]
+                    db_execute(f"UPDATE users SET role_id = {role_id} WHERE id = {user['id']}")
+
+                return User(user['id'], user['username'], user['password'], role_id)
+        elif isinstance(session['user'], dict):  # Pokud je 'user' slovník
+            return User(session['user']['id'], session['user']['username'], "", session['user']['role_id'])
     return None
+
 
 @app.context_processor
 def inject_user_and_role():
     if 'user' in session:
-        print(session['user'])  # Přidej tento výpis pro kontrolu
-        role = Role.get_role_by_id(session['user']['role_id'])
-        return {
-            'current_user': session['user']['username'],
-            'current_role': role.name if role else 'Bez role'
-        }
+        if isinstance(session['user'], dict):
+            roles_dict = get_roles_dict()
+            role_id = session['user'].get('role_id')
+            return {
+                'current_user': session['user'].get('username'),
+                'current_role': roles_dict.get(role_id, 'Neznámá role')
+            }
+        else:
+            # Pokud 'user' není slovník, to znamená, že session obsahuje ID uživatele (nebo něco jiného)
+            return {
+                'current_user': None,
+                'current_role': None
+            }
     return {
         'current_user': None,
         'current_role': None

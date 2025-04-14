@@ -9,9 +9,10 @@ app.secret_key = "dev"
 
 if __name__ == '__main__':
 
-    if not path.exists(app.config["DATABASE"]):
-        print("Inicializace database")
-        create_db()
+    with app.app_context():
+        if not path.exists(app.config["DATABASE"]):
+            print("Inicializace database")
+            create_db()
 
 
     app.run(debug=True)
